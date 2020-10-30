@@ -5,7 +5,6 @@
 //  Created by Max on 20.10.2020.
 //
 
-import Foundation
 struct Car: CustomStringConvertible {
     private let bodyType: Body
     private let manufacturer: String
@@ -14,8 +13,11 @@ struct Car: CustomStringConvertible {
     private let yearOfIssue: Int?
     private let carNumber: String?
     
-    init(bodyType: Body, manufacturer: String, model: String,
-         yearOfIssue: Int? = nil, carNumber: String? = nil) {
+    init(bodyType: Body,
+         manufacturer: String,
+         model: String,
+         yearOfIssue: Int? = nil,
+         carNumber: String? = nil) {
         self.bodyType = bodyType
         self.manufacturer = manufacturer
         self.model = model

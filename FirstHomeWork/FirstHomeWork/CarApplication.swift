@@ -7,21 +7,20 @@
 
 import Foundation
 class CarApplication {
-    private var carManager: CarManager
+    private var cars: [Car] = []
+    private let consoleHelper: ConsoleHelper
     
-    init(carManager: CarManager) {
-        self.carManager = carManager
+    init(consoleHelper: ConsoleHelper) {
+        self.consoleHelper = consoleHelper
     }
     
-    public func start() -> Void {
+    public func start() {
         while true {
             self.printCommandsHint()
             
-            let number = readLine()
-            
-            switch number {
+            switch readLine() {
             case "1":
-                self.createCar()
+                self.addCar()
             case "2":
                 self.printCars()
             case "3":
@@ -36,37 +35,69 @@ class CarApplication {
 }
 
 private extension CarApplication {
-    func createCar() -> Void {
+    func addCar() {
         let bodyType = self.getBodyType()
         
         print("enter manufacturer:")
-        let manufacturer = self.getString()
+        let manufacturer = self.consoleHelper.getUserString()
         
         print("enter model:")
-        let model = self.getString()
+        let model = self.consoleHelper.getUserString()
         
         print("enter year of issue:")
-        let yearOfIssue = self.getOptionalInt()
+        print("(if you want skip this field press - enter)")
+        let yearOfIssue = self.consoleHelper.getUserOptionalInt()
         
         print("enter car number:")
-        print("if you want skip this field press - enter")
+        print("(if you want skip this field press - enter)")
         let carNumber = readLine()
         
-        carManager.addCar(car: Car(bodyType: bodyType, manufacturer: manufacturer, model: model, yearOfIssue: yearOfIssue, carNumber: carNumber))
+        cars.append(Car(bodyType: bodyType,
+                        manufacturer: manufacturer,
+                        model: model,
+                        yearOfIssue: yearOfIssue,
+                        carNumber: carNumber))
     }
     
-    func printCars() -> Void {
+    func printCars() {
+        if cars.isEmpty {
+            print("carlist is empty")
+            return
+        }
+        
         print("all cars:")
-        carManager.printAllcars()
+        for (index, car) in self.cars.enumerated() {
+            print("car number: \(index + 1)")
+            print("-----------------")
+            print(car)
+            print()
+        }
     }
     
-    func sortCarsByBodyType() -> Void {
+    func sortCarsByBodyType() {
+        if cars.isEmpty {
+            print("carlist is empty")
+            return
+        }
+        
         let bodyType = self.getBodyType()
         
-        carManager.sortByBodyType(bodyType: bodyType)
+        let filtredCars = self.cars.filter {$0.getBodyType() == bodyType}
+        
+        if filtredCars.isEmpty {
+            print("no one car with this body-type")
+        } else {
+            print("cars with body-type: \(bodyType.name)")
+            print()
+            
+            for car in filtredCars {
+                print(car)
+                print()
+            }
+        }
     }
     
-    func printCommandsHint() -> Void {
+    func printCommandsHint() {
         print("--------------------")
         print("Commands hint:")
         print("1 - add car")
@@ -84,7 +115,7 @@ private extension CarApplication {
         }
         
         print("enter you value: ")
-        let bodyPosition = self.getInt()
+        let bodyPosition = self.consoleHelper.getUserInt()
         
         if let body = Body(rawValue: bodyPosition) {
             return body
@@ -92,54 +123,5 @@ private extension CarApplication {
             print("invalid value, try one more")
             return self.getBodyType()
         }
-    }
-    
-    func getString() -> String {
-        var inputString = ""
-        
-        while inputString.isEmpty {
-            if let string = readLine(), string.isEmpty == false {
-                inputString = string
-            } else {
-                print("ivalid value, try one more")
-            }
-        }
-        
-        return inputString
-    }
-    
-    func getInt() -> Int {
-        var inputInt: Int?
-        
-        while inputInt == nil {
-            let string = self.getString()
-            
-            if let int = Int(string) {
-                inputInt = int
-            } else {
-                print("ivalid value, try one more")
-            }
-        }
-        
-        return inputInt ?? 0
-    }
-    
-    func getOptionalInt() -> Int? {
-        var inputValue: Int?
-        
-        while true {
-            let string = readLine()!
-            
-            if string == "" {
-                return nil
-            } else if let number = Int(string), string != "" {
-                inputValue = number
-                break
-            } else {
-                print("invalid value, try one more")
-            }
-        }
-        
-        return inputValue
     }
 }

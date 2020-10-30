@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E56D95F02541975900D3BECD /* CarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D95EF2541975900D3BECD /* CarManager.swift */; };
+		E5487410254C5F31004DDFCE /* ConsoleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E548740F254C5F31004DDFCE /* ConsoleHelper.swift */; };
 		E56D95F32541A80400D3BECD /* CarApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D95F22541A80400D3BECD /* CarApplication.swift */; };
 		E5D6E0D5253F46BD00B86790 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D6E0D4253F46BD00B86790 /* main.swift */; };
 		E5D6E0DE253F483900B86790 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D6E0DD253F483900B86790 /* Car.swift */; };
@@ -27,7 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E56D95EF2541975900D3BECD /* CarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarManager.swift; sourceTree = "<group>"; };
+		E548740F254C5F31004DDFCE /* ConsoleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleHelper.swift; sourceTree = "<group>"; };
 		E56D95F22541A80400D3BECD /* CarApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarApplication.swift; sourceTree = "<group>"; };
 		E5D6E0D1253F46BD00B86790 /* FirstHomeWork */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FirstHomeWork; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6E0D4253F46BD00B86790 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -68,8 +68,8 @@
 				E5D6E0D4253F46BD00B86790 /* main.swift */,
 				E5D6E0DD253F483900B86790 /* Car.swift */,
 				E5D6E0E0253F4A0E00B86790 /* Body.swift */,
-				E56D95EF2541975900D3BECD /* CarManager.swift */,
 				E56D95F22541A80400D3BECD /* CarApplication.swift */,
+				E548740F254C5F31004DDFCE /* ConsoleHelper.swift */,
 			);
 			path = FirstHomeWork;
 			sourceTree = "<group>";
@@ -131,8 +131,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5487410254C5F31004DDFCE /* ConsoleHelper.swift in Sources */,
 				E56D95F32541A80400D3BECD /* CarApplication.swift in Sources */,
-				E56D95F02541975900D3BECD /* CarManager.swift in Sources */,
 				E5D6E0E1253F4A0E00B86790 /* Body.swift in Sources */,
 				E5D6E0DE253F483900B86790 /* Car.swift in Sources */,
 				E5D6E0D5253F46BD00B86790 /* main.swift in Sources */,

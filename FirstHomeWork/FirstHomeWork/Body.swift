@@ -12,10 +12,6 @@ enum Body: Int, CaseIterable {
     case suv
     
     var name: String {
-        switch self {
-        case .sedan: return "sedan"
-        case .coupe: return "coupe"
-        case .suv: return "suv"
-        }
+        return String(describing: self)
     }
 }
