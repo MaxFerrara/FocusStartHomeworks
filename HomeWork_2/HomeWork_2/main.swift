@@ -11,13 +11,11 @@ let group = DispatchGroup()
 let queue = DispatchQueue.global(qos: .userInteractive)
 
 var threadSafeArray = ThreadSafeArray<Int>()
-var commonArray = [Int]()
 
 group.enter()
 queue.async {
 	for number in 0...1000 {
 		threadSafeArray.append(number)
-		commonArray.append(number)
 	}
 	
 	group.leave()
@@ -27,7 +25,6 @@ group.enter()
 queue.async {
 	for number in 0...1000 {
 		threadSafeArray.append(number)
-		commonArray.append(number)
 	}
 	
 	group.leave()
@@ -35,6 +32,5 @@ queue.async {
 
 group.wait()
 
-print("Results:")
+print("Result:")
 print(threadSafeArray.count)
-print(commonArray.count)
