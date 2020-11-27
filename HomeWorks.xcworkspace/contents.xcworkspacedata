@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:HomeWork_5">
+   </FileRef>
+   <FileRef
+      location = "group:HomeWork_3">
+   </FileRef>
+   <FileRef
       location = "group:HomeWork_2">
    </FileRef>
    <FileRef
